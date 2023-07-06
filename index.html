@@ -77,75 +77,108 @@
 }
 
 
+$baseline: 1.5rem;
+
+$minScreen: 20rem;
+$maxScreen: 50rem;
+$minFont: .8rem;
+$maxFont: 2rem;
+
+$h1: 2rem;
+$h2: 1.5rem;
+$h3: 1.25rem;
+$h4: 1rem;
+$h5: .875rem;
+
+
+@mixin fluid-type($properties, $min-vw, $max-vw, $min-value, $max-value) {
+	& {
+		@each $property in $properties {
+			#{$property}: $min-value;
+		}
+
+		@media screen and (min-width: $min-vw) {
+			@each $property in $properties {
+				#{$property}: calc(#{$min-value} + #{strip-unit($max-value - $min-value)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
+			}
+		}
+
+		@media screen and (min-width: $max-vw) {
+			@each $property in $properties {
+				#{$property}: $max-value;
+			}
+		}
+	}
+}
+
+@function strip-unit($value) {
+	@return $value / ($value * 0 + 1);
+}
+
+*{
+	box-sizing: border-box;
+}
 
 html {
-    display: flex;
-    min-height: 100vh;
-    background: var(--background);
-    font-family: 'Inter', sans-serif;
-    font-size: 16px;
+	box-sizing: border-box;
+	height: 100%;
+	font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+	@include fluid-type(font-size, $minScreen, $maxScreen, $minFont, $maxFont);
 }
 
-main {
-    flex: 1 0 auto;
-    display: flex;
-    flex-direction: column;
+body {
+	line-height: $baseline;
+	padding: $baseline 0;
+	margin: 0 auto;  
+	background-image: linear-gradient(rgba(200, 50, 50, .25) 1px, transparent 1px);
+	background-size: 1px $baseline;
+	width: 22rem;
 }
 
-
-
-body, p {
-  
-  color: var(--text);
-  font-family: 'Inter', sans-serif;
-  font-size: 1rem;
-  line-height: 1.333rem;
-  letter-spacing: -0.003em;
-  font-weight: 400;
+p{	
+	line-height: $baseline;
+	margin-bottom: $baseline;
 }
 
-a {
-  text-decoration: underline rgba(0, 0, 0, 0.3);
-  color: black;
-  word-break: break-word;
-  word-wrap: break-word;
+h1,
+h2,
+h3,
+h4,
+h5{
+	font-weight: 700;
+	margin-bottom: $baseline;
 }
-
-a:hover {
-  color: #656565;
-}
-
-h1, h2, h3 {font-family: 'Inter', sans-serif;}
-
-
-h4 {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: calc(12px + 1vw);
-    color: var(--blue-2);
-    background: var(--blue);
-}
-
 
 h1 {
-  font-size: calc(50.90px + 1vw);
-  letter-spacing: -0.03em;
-  line-height: calc(var(--spacingv) * 3);
-  color: #FF6A6C;
+	font-size: $h1;
+	line-height: $h1;
+	margin-top: calc((#{$baseline} - #{$h1}) + #{$baseline});
 }
 
-h2 {font-size: var(--font-size-h2);}
-h3 {font-size: var(--font-size-h3);}
-
-
-.outer {
-  
-  padding: 8vw;
+h2 {
+	font-size: $h2;
+	line-height: $h2;
+	margin-top: calc((#{$baseline} - #{$h2}) + #{$baseline}*2);
 }
 
+h3 {
+	font-size: $h3;
+	line-height: $h3;
+	margin-top: calc((#{$baseline} - #{$h3}) + #{$baseline}*2);
+}
 
-    </style>
+h4 {
+	font-size: $h4;
+	line-height: $h4;
+	margin-top: calc((#{$baseline} - #{$h4}) + #{$baseline}*2);
+}
 
-
+h5 {
+	font-size: $h5;
+	line-height: $h5;
+	margin-top: calc((#{$baseline} - #{$h5}) + #{$baseline}*2);
+}
 
   </head>
 
@@ -153,18 +186,30 @@ h3 {font-size: var(--font-size-h3);}
 
   <body>
 
-    <main id="main">
-        <section class="outer">
-
-    <h4>Eyebrow</h4>
-    <h1>This is the h1</h1>
-    <h2>This is the h2</h2>
-    <h3>This is the h1</h3>
-    <p>this is the paragraph </p>
-
-
-</section>
-    </main>
+    <div class="container">
+        <h1>Fluid Vertical Rhythm</h1>
+        <p>This is an example of fluid type that maintains vertical rhythm. I'll try and find the time to write it up in detail soon.</p>
+        <p>If the lines seem to glitch out ocasionally it's not because the vertical rhythm is broken. I think it's because of the way the browser rounds. The height of the gradient background that draws the lines on the body element is only rounded once, whereas real line hight is rounded on a per element basis. This adds up by the time you get to the bottom of the page. No idea how to fix it!</p>
+    
+    
+        <h2>Fluid Vertical Rhythm</h2>
+        <p>This is an example of fluid type that maintains vertical rhythm. I'll try and find the time to write it up in detail soon.</p>
+        <p>If the lines seem to glitch out ocasionally it's not because the vertical rhythm is broken. I think it's because of the way the browser rounds. The height of the gradient background that draws the lines on the body element is only rounded once, whereas real line hight is rounded on a per element basis. This adds up by the time you get to the bottom of the page. No idea how to fix it!</p>
+    
+    
+    
+        <h3>Fluid Vertical Rhythm</h3>
+        <p>This is an example of fluid type that maintains vertical rhythm. I'll try and find the time to write it up in detail soon.</p>
+        <p>If the lines seem to glitch out ocasionally it's not because the vertical rhythm is broken. I think it's because of the way the browser rounds. The height of the gradient background that draws the lines on the body element is only rounded once, whereas real line hight is rounded on a per element basis. This adds up by the time you get to the bottom of the page. No idea how to fix it!</p>
+    
+    
+    
+        <h4>Fluid Vertical Rhythm</h4>
+        <p>This is an example of fluid type that maintains vertical rhythm. I'll try and find the time to write it up in detail soon.</p>
+        <p>If the lines seem to glitch out ocasionally it's not because the vertical rhythm is broken. I think it's because of the way the browser rounds. The height of the gradient background that draws the lines on the body element is only rounded once, whereas real line hight is rounded on a per element basis. This adds up by the time you get to the bottom of the page. No idea how to fix it!</p>
+    
+    
+    </div>
 
 
 
