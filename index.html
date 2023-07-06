@@ -2,6 +2,243 @@
 <html>
   <head>
     <title>KRLMNZ</title>
+
+    <style>
+
+/* From Inter
+/* ---------------------------------------------------------- */
+:root {
+
+/* Colours */
+/* colors */
+--white: #FFFFFD;; 
+--black: #0D0D0A;
+--light-grey: #E9EBE9;
+--dark-grey: #5B5C5B;
+
+--red:   #ffd0d0ff;
+--yellow: #ffffd0ff;
+--orange: #ffe0a0ff;
+--blue:   #b1d0ffff;
+--green:  #d1ffd0ff;
+--purple: #f0d0ffff;
+
+--blue-2:#4AA2FF;
+--green-2: #6CFF6A;
+--yellow-2: #FFEE6A;
+--red-2: #FF6A6C;
+--purple-2: #DE6AFF;
+--orange-2: #FFC53A;
+
+
+/* Fonts */
+--font-sans:'Inter', sans-serif;
+--font-light: 100;
+--font-normal: 400;
+--font-medium:650;
+--font-bold: 700;
+--font-heavy: 800;
+
+--spacingv:1.333rem;
+
+/* Font sizes */
+--font-size-small: 00.75rem;
+--font-size-body: calc(16px + 1vw);
+--font-size-lede: calc(18px + 1vw);
+--font-size-h4: calc(21.33px + 1vw);
+--font-size-h3:calc(28.43px + 1vw);
+--font-size-h2: calc(37.90px + 1vw);
+--font-size-h1: calc(50.90px + 1vw);
+--font-size-h1-l: calc(50.90px + 1.333vw);
+--font-size-h1-xl:calc(50.90px + 1.777vw);
+--font-size-h1-xxl:calc(50.90px + 1.369vw);
+
+
+
+/* Breakpoints */
+--xlarge: 1680px;
+--large: 1280px;
+--medium: 980px;
+--small: 740px;
+--xsmall: 480px;
+
+/* Sizes */
+--height: 4.209remrem;
+--margin: 2.369rem;
+--radius: 0rem;
+}
+
+@supports (font-variation-settings: normal) {
+  :root {
+    --font-family: 'Inter var';
+  }
+}
+
+
+.gh-head-logo img {
+  max-height:24px;
+}
+
+
+
+body {
+  background-color: #f4f4f4;
+  color: #111;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+
+  font-size: var(--fontSize);
+  line-height: var(--lineHeight);
+
+  letter-spacing: -0.003em;
+
+  font-weight: 520;
+
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+
+  font-kerning: normal;
+    -webkit-font-kerning: normal;
+    -ms-font-kerning: normal;
+    -moz-font-kerning: normal;
+    -o-font-kerning: normal;
+
+  font-variant-ligatures: contextual common-ligatures;
+    -webkit-font-variant-ligatures: contextual common-ligatures;
+    -ms-font-variant-ligatures: contextual common-ligatures;
+    -moz-font-variant-ligatures: contextual common-ligatures;
+    -o-font-variant-ligatures: contextual common-ligatures;
+
+  /* required to work around letter-spacing bug in Chrome: */
+  font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+}
+
+a {
+  text-decoration: underline rgba(0, 0, 0, 0.3);
+  color: black;
+  word-break: break-word;
+  word-wrap: break-word;
+}
+
+a:hover {
+  color: #656565;
+}
+a[href^="#"]:hover {
+  color: #3e3e3e;
+}
+
+/* Nav
+}*/
+
+.gh-head-menu .nav a {
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 650;
+  padding: 5px 0;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+
+/*p, pre {
+  margin: 1rem 0;
+}*/
+code, pre, q, tt {
+  font-family: 'IBM Plex Mono', monospace;
+  font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1, 'ss02' 1, 'zero' 1;
+  line-height: inherit;
+}
+code {
+  display: block;
+  border-radius:1px;
+  padding: 0.5em 0;
+  overflow: auto;
+}
+pre {
+  white-space: pre-wrap;
+  line-break: loose;
+  overflow-x: auto;
+}
+
+
+q {
+  display: inline;
+  white-space: pre-wrap;
+}
+q {
+  display: inline;
+}
+q:before {
+  content: "";
+}
+q:after {
+  content: "";
+}
+kbd {
+  -moz-font-feature-settings:    'liga' 1, 'calt' 1, 'kern' 1, 'case' 1;
+  -ms-font-feature-settings:     'liga' 1, 'calt' 1, 'kern' 1, 'case' 1;
+  -o-font-feature-settings:      'liga' 1, 'calt' 1, 'kern' 1, 'case' 1;
+  -webkit-font-feature-settings: 'liga' 1, 'calt' 1, 'kern' 1, 'case' 1;
+  font-feature-settings:         'liga' 1, 'calt' 1, 'kern' 1, 'case' 1;
+  border: 1px solid rgba(0,0,0,0.18);
+  border-radius: 3px;
+  padding:0.1em 0.2em;
+  margin:0 0.1em;
+}
+dem { /* de-emphasize */
+  font-weight: 400;
+  opacity: 0.7;
+}
+num { /* number */
+  /*-moz-font-feature-settings:    'calt' 1, 'ss01' 1;
+  -ms-font-feature-settings:     'calt' 1, 'ss01' 1;
+  -o-font-feature-settings:      'calt' 1, 'ss01' 1;
+  -webkit-font-feature-settings: 'kern' 1, 'calt' 1, 'ss01' 1;
+  font-feature-settings:         'calt' 1, 'ss01' 1;*/
+  letter-spacing:0.01em;
+  white-space: pre;
+}
+
+em, i, .italic {
+  font-style: oblique;
+}
+
+small {
+  font-size: 11px;
+  letter-spacing: 0.012em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: calc(var(--spacingv) * 3);
+}
+
+
+
+p, pre, p + grid, pre + grid {
+  margin-bottom: var(--lineHeight);
+}
+
+
+blockquote {
+  display:inline-block;
+  border-radius:4px;
+  background: var(--yellow);
+  color:black;
+  padding: 1rem 1.5rem;
+  margin-bottom: 2rem;
+  font-weight:500;
+}
+
+
+    </style>
+
+
+
   </head>
   <body>
     <h1>Welcome to krl's site</h1>
