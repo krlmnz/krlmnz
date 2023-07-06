@@ -53,7 +53,7 @@
 --font-size-small: 00.75rem;
 --font-size-body: calc(16px + 1vw);
 --font-size-lede: calc(18px + 1vw);
---font-size-h4: calc(21.33px + 1vw);
+--font-size-h4: calc(16px + 1vw);
 --font-size-h3:calc(28.43px + 1vw);
 --font-size-h2: calc(37.90px + 1vw);
 --font-size-h1: calc(50.90px + 1vw);
@@ -137,9 +137,10 @@ a:hover {
 h1, h2, h3 {font-family: 'Inter', sans-serif;}
 
 
-h4 {font-family: 'IBM Plex Mono', monospace;}
-
-
+h4 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: var(--font-size-h4);
+}
 
 
 h1 {
@@ -147,7 +148,6 @@ h1 {
   letter-spacing: -0.03em;
   line-height: calc(var(--spacingv) * 3);
 }
-
 
 h2 {font-size: var(--font-size-h2);}
 h3 {font-size: var(--font-size-h3);}
