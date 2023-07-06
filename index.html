@@ -50,90 +50,102 @@
 --spacingv:1.333rem;
 
 /* Font sizes */
-h1: 2rem;
-h2: 1.5rem;
-h3: 1.25rem;
-h4: 1rem;
-h5: .875rem;
-
-$baseline: 1.5rem;
-
-$minScreen: 20rem;
-$maxScreen: 50rem;
-$minFont: .8rem;
-$maxFont: 2rem;
+--font-size-small: 00.75rem;
+--font-size-body: calc(16px + 1vw);
+--font-size-lede: calc(18px + 1vw);
+--font-size-h4: calc(16px + 1vw);
+--font-size-h3:calc(28.43px + 1vw);
+--font-size-h2: calc(37.90px + 1vw);
+--font-size-h1: calc(50.90px + 1vw);
+--font-size-h1-l: calc(50.90px + 1.333vw);
+--font-size-h1-xl:calc(50.90px + 1.777vw);
+--font-size-h1-xxl:calc(50.90px + 1.369vw);
 
 
+
+/* Breakpoints */
+--xlarge: 1680px;
+--large: 1280px;
+--medium: 980px;
+--small: 740px;
+--xsmall: 480px;
+
+/* Sizes */
+--height: 4.209remrem;
+--margin: 2.369rem;
+--radius: 0rem;
 }
 
 
-
-*{
-	box-sizing: border-box;
-}
 
 html {
-	box-sizing: border-box;
-	height: 100%;
-	font-smoothing: antialiased;
-	text-rendering: optimizeLegibility;
-	@include fluid-type(font-size, $minScreen, $maxScreen, $minFont, $maxFont);
+    display: flex;
+    min-height: 100vh;
+    background: var(--background);
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
 }
 
-body {
-	line-height: $baseline;
-	padding: $baseline 0;
-	margin: 0 auto;  
-	background-image: linear-gradient(rgba(200, 50, 50, .25) 1px, transparent 1px);
-	background-size: 1px $baseline;
-	width: 22rem;
+main {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
 }
 
-p{	
-	line-height: $baseline;
-	margin-bottom: $baseline;
+
+
+body, p {
+  
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  line-height: 1.333rem;
+  letter-spacing: -0.003em;
+  font-weight: 400;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5{
-	font-weight: 700;
-	margin-bottom: $baseline;
+a {
+  text-decoration: underline rgba(0, 0, 0, 0.3);
+  color: black;
+  word-break: break-word;
+  word-wrap: break-word;
 }
 
-h1 {
-	font-size: $h1;
-	line-height: $h1;
-	margin-top: calc((#{$baseline} - #{$h1}) + #{$baseline});
+a:hover {
+  color: #656565;
 }
 
-h2 {
-	font-size: $h2;
-	line-height: $h2;
-	margin-top: calc((#{$baseline} - #{$h2}) + #{$baseline}*2);
-}
+h1, h2, h3 {font-family: 'Inter', sans-serif;}
 
-h3 {
-	font-size: $h3;
-	line-height: $h3;
-	margin-top: calc((#{$baseline} - #{$h3}) + #{$baseline}*2);
-}
 
 h4 {
-	font-size: $h4;
-	line-height: $h4;
-	margin-top: calc((#{$baseline} - #{$h4}) + #{$baseline}*2);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: calc(12px + 1vw);
+    color: var(--blue-2);
+    background: var(--blue);
 }
 
-h5 {
-	font-size: $h5;
-	line-height: $h5;
-	margin-top: calc((#{$baseline} - #{$h5}) + #{$baseline}*2);
+
+h1 {
+  font-size: calc(50.90px + 1vw);
+  letter-spacing: -0.03em;
+  line-height: calc(var(--spacingv) * 3);
+  color: #FF6A6C;
 }
 
-</style>
+h2 {font-size: var(--font-size-h2);}
+h3 {font-size: var(--font-size-h3);}
+
+
+.outer {
+  
+  padding: 8vw;
+}
+
+
+    </style>
+
+
 
   </head>
 
@@ -141,30 +153,32 @@ h5 {
 
   <body>
 
-    <div class="container">
-        <h1>Fluid Vertical Rhythm</h1>
-        <p>This is an example of fluid type that maintains vertical rhythm. I'll try and find the time to write it up in detail soon.</p>
-        <p>If the lines seem to glitch out ocasionally it's not because the vertical rhythm is broken. I think it's because of the way the browser rounds. The height of the gradient background that draws the lines on the body element is only rounded once, whereas real line hight is rounded on a per element basis. This adds up by the time you get to the bottom of the page. No idea how to fix it!</p>
-    
-    
-        <h2>Fluid Vertical Rhythm</h2>
-        <p>This is an example of fluid type that maintains vertical rhythm. I'll try and find the time to write it up in detail soon.</p>
-        <p>If the lines seem to glitch out ocasionally it's not because the vertical rhythm is broken. I think it's because of the way the browser rounds. The height of the gradient background that draws the lines on the body element is only rounded once, whereas real line hight is rounded on a per element basis. This adds up by the time you get to the bottom of the page. No idea how to fix it!</p>
-    
-    
-    
-        <h3>Fluid Vertical Rhythm</h3>
-        <p>This is an example of fluid type that maintains vertical rhythm. I'll try and find the time to write it up in detail soon.</p>
-        <p>If the lines seem to glitch out ocasionally it's not because the vertical rhythm is broken. I think it's because of the way the browser rounds. The height of the gradient background that draws the lines on the body element is only rounded once, whereas real line hight is rounded on a per element basis. This adds up by the time you get to the bottom of the page. No idea how to fix it!</p>
-    
-    
-    
-        <h4>Fluid Vertical Rhythm</h4>
-        <p>This is an example of fluid type that maintains vertical rhythm. I'll try and find the time to write it up in detail soon.</p>
-        <p>If the lines seem to glitch out ocasionally it's not because the vertical rhythm is broken. I think it's because of the way the browser rounds. The height of the gradient background that draws the lines on the body element is only rounded once, whereas real line hight is rounded on a per element basis. This adds up by the time you get to the bottom of the page. No idea how to fix it!</p>
-    
-    
-    </div>
+    <main id="main">
+        <section class="outer">
+
+    <h4>Eyebrow</h4>
+    <h1>This is the h1</h1>
+    <h2>This is the h2</h2>
+    <h3>This is the h1</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dictum, ante in ornare commodo, sapien metus viverra massa, a rhoncus velit sapien sed tellus. In eu porttitor lacus. Morbi vitae sagittis neque, ac molestie sem. Cras egestas est risus, eget dictum diam sollicitudin efficitur. Maecenas ligula felis, egestas eu euismod tempus, iaculis ac dolor. Praesent urna elit, auctor maximus faucibus nec, dignissim eget lectus. Mauris leo nunc, posuere id neque et, suscipit consectetur nisl. Nullam euismod elementum ante id aliquam. Sed sollicitudin vel metus nec convallis. Quisque in tellus ac dolor cursus consectetur. Morbi ipsum risus, ultrices ac pretium sed, tempor eu justo. Aliquam tellus quam, fringilla sit amet lobortis sit amet, lacinia eget tellus.
+
+Etiam consequat magna nibh, non posuere quam dictum nec. Mauris euismod ullamcorper tristique. Integer magna quam, commodo ut arcu bibendum, lacinia volutpat ligula. Fusce ac justo et metus maximus dapibus a vel mi. Ut nec sapien vitae nibh porta feugiat. Vivamus gravida venenatis cursus. Donec ac est leo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam a elementum neque. Sed ac dui mauris. Fusce elementum mi vitae augue tempus tincidunt. Sed pellentesque orci non libero consectetur egestas.
+
+Pellentesque non vehicula mi. Praesent in felis venenatis, malesuada elit sit amet, aliquet ipsum. Phasellus neque quam, lobortis sit amet massa ac, tincidunt aliquet metus. Ut vel ante et dui ornare molestie. Suspendisse potenti. Curabitur ornare, eros sed semper consequat, tortor massa bibendum odio, ut mattis magna eros sit amet turpis. Nunc ac magna felis. Suspendisse potenti. Quisque ultrices, velit tristique finibus lacinia, felis dui blandit turpis, non elementum nulla odio ac justo. Sed leo leo, auctor eget interdum non, iaculis vel nibh. Vivamus laoreet tortor eu tempor eleifend. In lacus nulla, sollicitudin at metus nec, euismod consequat libero.
+
+Mauris iaculis, tortor sit amet suscipit iaculis, libero leo porttitor erat, non fringilla nunc nibh nec nulla. Aenean et ex augue. Nam id euismod mauris, at vehicula leo. Donec pellentesque, lorem ut dignissim semper, quam justo egestas tellus, in porta lacus erat vel felis. Sed nec mi dignissim, ullamcorper dolor tincidunt, pharetra sem. Duis neque nisl, commodo sit amet metus nec, sodales auctor ante. Aenean id varius elit, mattis rhoncus lectus.
+
+Sed dignissim, nisl a lobortis euismod, velit orci semper massa, ut accumsan felis ipsum in lectus. Quisque faucibus nisi velit, id aliquet lacus viverra a. Quisque non elementum nunc, nec tristique elit. Nunc elementum semper egestas. Integer consequat magna ac sollicitudin euismod. Aliquam placerat gravida risus at feugiat. Nunc ac venenatis est, sit amet sagittis magna. Donec blandit molestie sagittis.
+
+Generated 5 paragraphs, 428 words, 2841 bytes of Lorem Ipsum
+help@lipsum.com
+Privacy Policy · Do Not Sell My Personal Information · Change Consent
+
+</p>
+
+
+</section>
+    </main>
 
 
 
