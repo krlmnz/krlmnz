@@ -4,7 +4,7 @@
 ## Projects
 
 
-* [Interwoven](/Garment/) - Apparel manufacturing industry in New York’s Garment District
+* [Interwoven]([/Garment/](https://krlmnz.github.io/Garment/)) - Apparel manufacturing industry in New York’s Garment District
 * 
 
 ## Contact
